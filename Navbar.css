@@ -1,0 +1,267 @@
+
+.main-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  background: rgba(5, 16, 13, 0.48);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.nav-container {
+  width: min(1200px, 90%);
+  min-height: 78px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #f5f4ee;
+  text-decoration: none;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.nav-logo-mark {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid #8ce5bb;
+  border-radius: 50%;
+  color: #8ce5bb;
+  font-size: 18px;
+}
+
+.logo-dot {
+  color: #8ce5bb;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links > a {
+  position: relative;
+  color: #f1f5f2;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links > a:hover {
+  color: #8ce5bb;
+}
+
+.nav-links > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: #8ce5bb;
+  transition: width 0.2s ease;
+}
+
+.nav-links > a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-logout,
+.nav-mobile-logout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  background: transparent;
+  color: #f1f5f2;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.nav-logout:hover,
+.nav-mobile-logout:hover {
+  color: #8ce5bb;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 7px;
+  background: #8ce5bb;
+  color: #07110f;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: #b2f4d0;
+  transform: translateY(-2px);
+}
+
+.nav-menu-toggle,
+.nav-mobile-logout {
+  display: none;
+}
+
+/* Tablet */
+@media (max-width: 950px) {
+  .nav-container {
+    width: 92%;
+    gap: 14px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links > a,
+  .nav-logout {
+    font-size: 12px;
+  }
+
+  .nav-logo {
+    font-size: 20px;
+  }
+
+  .nav-actions {
+    gap: 10px;
+  }
+}
+
+/* Mobile navigation */
+@media (max-width: 700px) {
+  .nav-container {
+    width: 90%;
+    min-height: 70px;
+    gap: 10px;
+  }
+
+  .nav-logo {
+    gap: 7px;
+    font-size: 19px;
+  }
+
+  .nav-logo-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 5%;
+    right: 5%;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px;
+    border: 1px solid rgba(140, 229, 187, 0.25);
+    border-radius: 12px;
+    background: rgba(7, 17, 15, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  }
+
+  .nav-links.nav-links-open {
+    display: flex;
+  }
+
+  .nav-links > a {
+    padding: 14px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 14px;
+  }
+
+  .nav-links > a::after {
+    display: none;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
+
+  .nav-logout {
+    display: none;
+  }
+
+  .nav-cta {
+    padding: 10px 11px;
+    gap: 5px;
+    font-size: 12px;
+  }
+
+  .nav-menu-toggle {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 39px;
+    height: 39px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.23);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .nav-mobile-logout {
+    display: flex;
+    justify-content: flex-start;
+    padding: 14px 12px;
+    margin-top: 4px;
+    color: #ffb4a9;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-container {
+    gap: 7px;
+  }
+
+  .nav-logo {
+    font-size: 16px;
+  }
+
+  .nav-logo-mark {
+    width: 27px;
+    height: 27px;
+  }
+
+  .nav-cta {
+    padding: 9px;
+    font-size: 11px;
+  }
+}
